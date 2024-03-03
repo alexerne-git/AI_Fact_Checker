@@ -33,6 +33,8 @@ In this lab, TAs will demonstrate the following on the Google Console:
 * [Exercise 2 Big Query](#exercise-2-big-query)
 * [Exercise 3 Hints for Assignment 1](#exercise-3-hints-for-assignment-1)
 
+
+
 -----------------------------------
 ### **Exercise 1: Cleaning the Database (CSV) and Augmenting**
 -----------------------------------
@@ -55,3 +57,35 @@ Both steps can be found on the [Notebook]()
 - **Step 3: Saving the final database for later use**
 
 
+-----------------------------------
+### **Exercise 2: SQL as our logic programming checker**
+-----------------------------------
+
+In this section, we are going to use SQL to query the answer sent from chatGPT to see if the answer to that query is actually in our database. A visual illustration of that process can be found below:
+
+--- ADD image
+
+To do so and have a quick deployable solution, we are going to use Google Big Query. To do so, we generated the given keys and completed the following [Notebook]() **NOTE** To make it easier, it is better to run the code directly on Google Colab. The main steps are described below:
+- **Step 1: Connect to the Big Query - Google Cloud Platform** In this step, we imported our dataset on Big Query and generated the keys to have access to the database from our notebook **NOTE** Big query is not free for too many queries, so please beware of not sending to many queries at the time
+- **Step 2: Test the database and simple queries** In this step, we created simple SQL queries to test the connection
+- **Step 3: Sample query from chatGPT and fact check!** In this step, we created sample queries and looked at the results given by our database, more on the notebook.
+
+
+-----------------------------------
+### **Exercise 3: Creating a query from an answer prompt**
+-----------------------------------
+The important question is to see how we can truly get the SQL query in the correct format in order to compare it to our database. To answer this question, we will test two theories and find the best one. For both, we will use 10 queries and see which method is the best. 
+- **Method 1: prompt engineering** This is the more simple method, where we explicitely ask to chatGPT the formatted query
+- **Method 2: Name Entity Resolution** We will use NER from spacy to try to create the formatted query. 
+
+
+
+-----------------------------------
+### **Exercise 4: Adding it all together**
+-----------------------------------
+
+
+
+### **Exercise 3: Augmented answers to questions**
+
+References to Github (works, to execute on Google Colab GPU): https://github.com/the-ogre/LLM-FinetuningBERTforQuestionAnswering/blob/main/bert-fine-tuning-for-qa.ipynb
