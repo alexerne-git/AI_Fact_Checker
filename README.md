@@ -67,6 +67,8 @@ The important question is to see how we can truly get the SQL query in the corre
 ### **Exercise 4: Adding it all together**
 -----------------------------------
 
+- cd cd .\frontend_and_backend\fact-checker-app\
+- npm start (to launch the app on local host)
 
 
 ### **Exercise 3: Augmented answers to questions**
