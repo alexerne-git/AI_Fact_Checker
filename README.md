@@ -1,42 +1,25 @@
-<h1 align="center"> Lab 2: Data-Buckets & BigQuery </h1>
+<h1 align="center">Outils formels Avancés: </h1>
 <div>
 <td> 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Logo_Universit%C3%A9_de_Lausanne.svg/2000px-Logo_Universit%C3%A9_de_Lausanne.svg.png" style="padding-right:10px;width:240px;float:left"/></td>
-<h2 style="white-space: nowrap">Cloud and Advanced Analytics </h2></td>
+<img src="./read_me_img/logo.png"></td>
+<h2 style="white-space: nowrap">Project: AI Fact Checking</h2></td>
 <hr style="clear:both">
 <p style="font-size:0.85em; margin:2px; text-align:justify">
 <br>
 <br>
 </div>
 
-
-
-
-Welcome to this week's lab where we will delve into Google Storage and BigQuery. We will learn to leverage this powerful tool within our notebooks and enhance our SQL knowledge.
-
-## Learning Goals:
-By the end of this lab, you will be able to:
-- Understand the functionalities and navigation of Google BigQuery and Cloud Storage
-- Upload and explore data in BigQuery
-- Query datasets in BigQuery to reinforce your SQL skills
-
-## Introduction:
-
-
-## Lab Walkthrough
-In this lab, TAs will demonstrate the following on the Google Console:
-* Cloud Storage and buckets 
-* Exploring Google Cloud Console features
+This repository contains all the informations related to our Fact AI checking project for the course of Outils Formels Avancés. 
 
 ## Table of contents 
-* [Exercise 1 Cloud Storage and Buckets](#exercise-1-cloud-storage-and-buckets)
-* [Exercise 2 Big Query](#exercise-2-big-query)
-* [Exercise 3 Hints for Assignment 1](#exercise-3-hints-for-assignment-1)
+* [Step 1 Cleaning the Database (CSV) and Augmenting](#step-1-cleaning-the-database-(csv)-and-augmenting)
+* [Step 2 SQL as our logic programming checker](#step-2-sql-as-our-logic-programming-checker)
+* [Step 3 Creating a query from an answer prompt](#step-3-creating-a-query-from-an-answer-prompt)
 
 
 
 -----------------------------------
-### **Exercise 1: Cleaning the Database (CSV) and Augmenting**
+### **Step1 1: Cleaning the Database (CSV) and Augmenting**
 -----------------------------------
 The dataset was taken from a Github repository that can be found [here](https://github.com/awhstin/Dataset-List/blob/master/presidents.csv). This dataset seems to have taken public data provided from the Guardian, which can be found [here](https://www.theguardian.com/news/datablog/2012/oct/15/us-presidents-listed).
 
