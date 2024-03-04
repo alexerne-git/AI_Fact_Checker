@@ -13,7 +13,7 @@ function MyComponent() {
   const handleCheckConnection = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/presidents');
+      const response = await axios.get('http://localhost:5001/presidents');
       
       // Assuming a successful response indicates a working connection
       if (response.data) {
@@ -31,7 +31,7 @@ function MyComponent() {
   const handleEvaluateFactcheck = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/factcheck', {
+      const response = await axios.get('http://localhost:5001/factcheck', {
         params: {
           query_data: queryInput,
         },
