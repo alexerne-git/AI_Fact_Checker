@@ -127,14 +127,17 @@ The important question is to see how we can truly get the SQL query in the corre
     - **Option 2:** Run both dockerfiles at the same time, go to the folder frontend-and-backend and run: (we use -d --build to rebuild the images)
         - ```bash
            docker-compose up -d --build
-
-
 ### **Step 5 Alternatives and more**
 
 - **More: Augmented Answers:**
     - One idea would be to create a LMM (question answering with BERT) for specific questions. I.e: if we want to check the answer of ChatGPT of the presidence of Barack Obama, if the answer is valid, we could provide an **augmented answer**, I.e:
         - With more precise links to the actual ressouces 
         - Create a question - answer LLM trained on those sources:  Reference to Github (works, to execute on Google Colab GPU): https://github.com/the-ogre/LLM-FinetuningBERTforQuestionAnswering/blob/main/bert-fine-tuning-for-qa.ipynb
-- **Alternatives:** Another way to check the validity of the answers is to directly query the Google API and check the cosine similarity between the answer given by chatGPT and the answer of the first search provided by Google. The pipeline could look like this:
+- **Alternatives:** Another way to check the validity of the answers is to directly query the Google API and check the cosine similarity between the answer given by chatGPT and the answer of the first search provided by Google.
+    - To do so, we can generate an api key from the Google Custom Search API, link available [here](https://console.cloud.google.com/apis/library/customsearch.googleapis.com?hl=fr)
+    - Then we need to generate another key because we need to sign in to Custom Search Engine, link [here](https://programmablesearchengine.google.com/controlpanel/all). Link to the article [here](https://thepythoncode.com/article/use-google-custom-search-engine-api-in-python)
+    - Then using cosine similarity we can just compare both results. 
 
-Please refer to [this]() notebook for more information.
+
+
+
