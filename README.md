@@ -14,11 +14,23 @@ This repository contains all the informations related to our Fact AI checking pr
 
 ## Table of contents 
 * [Recall Project Summary: Oriented AI](#recall-project-summary-oriented-ai)
+* [Tentative Planning (feasibility) and General Pipeline](#tentative-planning-feasibility-and-general-pipeline)
 * [Step 1 Cleaning the Database and Augmenting](#step-1-cleaning-the-database-and-augmenting)
 * [Step 2 SQL as our logic programming checker](#step-2-sql-as-our-logic-programming-checker)
 * [Step 3 Creating a query from an answer prompt](#step-3-creating-a-query-from-an-answer-prompt)
 * [Step 4 Adding it all together](#step-4-adding-it-all-together)
 * [Step 5 Alternatives and more](#step-5-alternatives-and-more)
+
+
+
+
+--------------------------------
+### Organizational considerations:
+--------------------------------
+- Presentation Guidelines & Template can be found [here](https://www.canva.com/design/DAF-DmpNG9c/8ihtV3W0dKmtPwSkx0wwTg/edit?utm_content=DAF-DmpNG9c&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- All illustrations can be found [here](https://www.canva.com/design/DAF-ic70zwQ/VRxu6NuxIy0cWPR0cb42Sg/edit?utm_content=DAF-ic70zwQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) (please add date each time)
+- All presentations can be found [here](https://www.canva.com/design/DAF-Du2Eg4A/KWLavthYNvOxPrgarOtZJA/edit?utm_content=DAF-Du2Eg4A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 
 -----------------------------------
 ### **Recall Project Summary: Oriented AI**
@@ -32,6 +44,13 @@ This repository contains all the informations related to our Fact AI checking pr
 - *ChatGPT: ChatGPT*
 - *Mistral AI*
 
+
+--------------------------------
+### Tentative Planning (feasibility) and General Pipeline
+--------------------------------
+<img src="./read_me_img/tentative_planning.png">
+---------------
+<img src="./read_me_img/general_pipeline.png">
 
 -----------------------------------
 ### **Step 1 Cleaning the Database and Augmenting**
@@ -49,7 +68,7 @@ The structure of the dataset is the following:
 
 **However**, we need to simplify the structure of the dataset to provide a more comprehensive way to query the information of this dataset. In addition, we would like to augment the response (Fact-checked or not) with actual reliable sources (which lacks in ChatGPT's current version). To do so, we are going to go through the two following steps:
 
-Both steps can be found on the [Notebook]()
+Both steps can be found on the [Notebook](/Notebooks/Step_1_cleaning_augmenting_dataset.ipynb)
 - **Step 1: Simplifying / Renaming the dataset:** In this step, we are going to rename columns and reorganize the database
 - **Step 2: Augmenting the database:** In this step, we are going to add another column with actual links related to the presidents, in order to provide an advanced search to the user once the statement or fact is checked ! 
 - **Step 3: Saving the final database for later use**
@@ -61,9 +80,10 @@ Both steps can be found on the [Notebook]()
 
 In this section, we are going to use SQL to query the answer sent from chatGPT to see if the answer to that query is actually in our database. A visual illustration of that process can be found below:
 
---- ADD image
+<img src="./read_me_img/SQL_logic.png">
 
-To do so and have a quick deployable solution, we are going to use Google Big Query. To do so, we generated the given keys and completed the following [Notebook]() **NOTE** To make it easier, it is better to run the code directly on Google Colab. The main steps are described below:
+
+To do so and have a quick deployable solution, we are going to use Google Big Query. To do so, we generated the given keys and completed the following [Notebook](/Notebooks/Step_2_big_query.ipynb) **NOTE** To make it easier, it is better to run the code directly on Google Colab. The main steps are described below:
 - **Step 1: Connect to the Big Query - Google Cloud Platform** In this step, we imported our dataset on Big Query and generated the keys to have access to the database from our notebook **NOTE** Big query is not free for too many queries, so please beware of not sending to many queries at the time
 - **Step 2: Test the database and simple queries** In this step, we created simple SQL queries to test the connection
 - **Step 3: Sample query from chatGPT and fact check!** In this step, we created sample queries and looked at the results given by our database, more on the notebook.
@@ -82,10 +102,38 @@ The important question is to see how we can truly get the SQL query in the corre
 ### **Step 4 Adding it all together**
 -----------------------------------
 
-- cd cd .\frontend_and_backend\fact-checker-app\
+**To run the front-end**
+- cd .\frontend_and_backend\fact-checker-app\
 - npm start (to launch the app on local host)
+
+**To run the python server**
+-  cd .\frontend_and_backend\backend\
+-  python server.py
+
+**Good practice to see if everything works correctly**
+- Run the get request on POSTMAN: http://localhost:5000/presidents
+
+- Run with docker - easier -> **2 Possibilities:**
+    - **Option 1:** Run both front-end and back-end in two dockers
+        - Go to the frontend folder
+        - ```bash
+          docker build -t frontend-ai-checker-v1 .
+          docker run -p 80:80 frontend-ai-checker-v1
+        - Go to the backend folder
+        - ```bash
+          docker build -t backend-ai-checker-v2 .
+          docker run -p 5000:5000 backend-ai-checker-v2
+    - **Option 2:** Run both dockerfiles at the same time, go to the folder frontend-and-backend and run:
+        - ```bash
+          docker-compose up
 
 
 ### **Step 5 Alternatives and more**
 
-References to Github (works, to execute on Google Colab GPU): https://github.com/the-ogre/LLM-FinetuningBERTforQuestionAnswering/blob/main/bert-fine-tuning-for-qa.ipynb
+- **More: Augmented Answers:**
+    - One idea would be to create a LMM (question answering with BERT) for specific questions. I.e: if we want to check the answer of ChatGPT of the presidence of Barack Obama, if the answer is valid, we could provide an **augmented answer**, I.e:
+        - With more precise links to the actual ressouces 
+        - Create a question - answer LLM trained on those sources:  Reference to Github (works, to execute on Google Colab GPU): https://github.com/the-ogre/LLM-FinetuningBERTforQuestionAnswering/blob/main/bert-fine-tuning-for-qa.ipynb
+- **Alternatives:** Another way to check the validity of the answers is to directly query the Google API and check the cosine similarity between the answer given by chatGPT and the answer of the first search provided by Google. The pipeline could look like this:
+
+Please refer to [this]() notebook for more information.
