@@ -31,7 +31,7 @@ function MyComponent() {
   const handleEvaluateFactcheck = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://127.0.0.1:5000/factcheck', {
+      const response = await axios.get('http://localhost:5000/factcheck', {
         params: {
           query_data: queryInput,
         },

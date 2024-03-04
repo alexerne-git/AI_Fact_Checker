@@ -124,9 +124,9 @@ The important question is to see how we can truly get the SQL query in the corre
           docker build -t backend-ai-checker-v2 .
           docker run -p 5000:5000 backend-ai-checker-v2
     - Don't forget to rebuild images before docker-compose up if changes are made to frontend or backend
-    - **Option 2:** Run both dockerfiles at the same time, go to the folder frontend-and-backend and run:
+    - **Option 2:** Run both dockerfiles at the same time, go to the folder frontend-and-backend and run: (we use -d --build to rebuild the images)
         - ```bash
-          docker-compose up
+           docker-compose up -d --build
 
 
 ### **Step 5 Alternatives and more**
