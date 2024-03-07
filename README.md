@@ -29,7 +29,7 @@ This repository contains all the informations related to our Fact AI checking pr
 --------------------------------
 - Presentation Guidelines & Template can be found [here](https://www.canva.com/design/DAF-DmpNG9c/8ihtV3W0dKmtPwSkx0wwTg/edit?utm_content=DAF-DmpNG9c&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - All illustrations can be found [here](https://www.canva.com/design/DAF-ic70zwQ/VRxu6NuxIy0cWPR0cb42Sg/edit?utm_content=DAF-ic70zwQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) (please add date each time)
-- All presentations can be found [here](https://www.canva.com/design/DAF-Du2Eg4A/KWLavthYNvOxPrgarOtZJA/edit?utm_content=DAF-Du2Eg4A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- First presentation can be found [here](https://www.canva.com/design/DAF-Du2Eg4A/KWLavthYNvOxPrgarOtZJA/edit?utm_content=DAF-Du2Eg4A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
 -----------------------------------
