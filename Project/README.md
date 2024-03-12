@@ -9,3 +9,8 @@ Outils Formels Avancés 2024</h1>
 <br>
 <br>
 </div>
+
+This repository contains all the informations related to our Fact AI checking project for the course of Outils Formels Avancés 2024 - Master Program at the University of Geneva. 
+
+## Table of contents 
+* [...](#)
