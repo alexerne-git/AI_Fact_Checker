@@ -34,16 +34,12 @@ Rouge, also called **Recall-Oriented Understudy for Gisting Evaluation** is a me
 
 - **How does it work ?** Compares quality / similarity between reference and generated summary using N-grams. For the reference dataset, we will use the [Xsum](https://paperswithcode.com/dataset/xsum) dataset. This dataset contains 226'771 news articles accompanied with a one-sentence summary. The articles are collected from BBC articles (2010 to 2017) - covering a variety of domains (News, Politics, Sports, Weather, Business, Technology...). 
 
-<img src="./read_me_img/how.png">
+<img height="100%" width="350px" src="./read_me_img/how.png">
 
- 
-- **How is it calculated ?**
+<img height="100%" width="350px" src="./read_me_img/computation.png">
 
-<img src="./read_me_img/computation.png">
+<img height="100%" width="350px" src="./read_me_img/practice.png">
 
-- **Practical example**
-
-<img src="./read_me_img/practice.png">
 
 -----
 **References:**
