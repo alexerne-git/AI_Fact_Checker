@@ -96,6 +96,18 @@ This metric uses WikiData and SparQL in order to create queries to specific know
 -------------------------------------------
 ### 5: BERT
 
+BERTScore is a metric used to evaluate the quality of generated text by comparing it to a reference text. It assesses how similar the generated text (candidate) is to the reference text (precision, recall and F1 score).
+In simple terms, BERTScore gives us a way to quantitatively measure how well a generated piece of text matches a reference text. Higher BERTScores indicate better quality generated text. It's useful for evaluating the performance of language models and text generation systems.
+
+<div style="display: flex; justify-content: center;">
+    <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
+</div>
+
+
+
+-------------------------------------------
+### 6: Roberta
+
 <div style="display: flex; justify-content: center;">
     <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
 </div>
