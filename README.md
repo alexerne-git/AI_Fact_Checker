@@ -39,6 +39,8 @@ The image below illustrates the process we have taken for this metric:
 
 - **How to use it?** For more information, you can run the code (locally / Google Colab) - the code can be found [here]()
 
+- **What output results?** ROUGE-1 is often preferred as the primary evaluation metric due to its simplicity, robustness, and ability to capture the essence of summary quality based on unigram overlap.
+
 **References:**
 - [1] Medium article on the [ROUGE metric](https://gandhikunal1021.medium.com/summarization-using-llm-and-measuring-the-performance-with-rouge-part-1-8532ea70c8da)
 - [2] [Github Notebook](https://github.com/gk1021/Summarization-LLM) on ROUGE metric
