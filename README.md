@@ -37,7 +37,7 @@ The image below illustrates the process we have taken for this metric:
     <img height="100%" width="450px" src="./read_me_img/practice.png" alt="Description of the image">
 </div>
 
-- **How to use it?** For more information, you can run the code (locally / Google Colab) - the code can be found [here]()
+- **How to use it?** For more information, you can run the code (locally / Google Colab) - the code can be found [here](./1_ROUGE.ipynb)
 
 - **What output results?** ROUGE-1 is often preferred as the primary evaluation metric due to its simplicity, robustness, and ability to capture the essence of summary quality based on unigram overlap.
 
@@ -53,13 +53,19 @@ The image below illustrates the process we have taken for this metric:
 BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candidate translation to one or more reference translations. BLEU evaluates translation quality based on n-gram precision. It calculates the precision of n-grams in the generated translation compared to one or more reference translations. BLEU also incorporates a brevity penalty to discourage overly short translations.
 
 - **How does it work ?**
+    - BLEU breaks down both the reference and generated text into smaller units called n-grams (sequences of n words). It then counts how many of these n-grams in the generated text also appear in the reference text.
+    - BLEU calculates a precision score for each n-gram size (usually up to 4-grams). Precision measures how many of the n-grams in the generated text match with the n-grams in the reference text.
+    - Finally, BLEU combines all these factors into a single score between 0 and 1. A higher BLEU score indicates a better match between the generated text and the reference text.
+    <img height="100%" width="450px" src="./read_me_img/bleu.png" alt="Description of the image">
 
-- <img height="100%" width="450px" src="">
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./2_BLEU.ipynb)
 
-- **How to use it?**  
 
 **References:**
-
 - [1] Medium article on the [BLEU metric](https://medium.com/@priyankads/evaluation-metrics-in-natural-language-processing-bleu-dc3cfa8faaa5)
 
+
+#### BLEU and ROUGE:
+- **BLEU** focuses on precision by counting matching n-grams between the generated and reference text.
+- **ROUGE** focuses on recall by measuring overlapping units like words, n-grams, and sequences between the generated and reference text.
 -------------------------------------------
