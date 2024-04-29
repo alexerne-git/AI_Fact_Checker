@@ -20,10 +20,12 @@ The goal of this project was to create a fact checker to evaluate LLMS, therefor
 
 * [1. ROUGE](#1-rouge)
 * [2. BLEU](#2-bleu)
-
+* [3. Sentiment Analysis](#3-sentiment-analysis)
+* [4. Fact Checking](#4-fact-checking)
+* [5. BERT](#5-bert)
 
 -------------------------------------------
-#### **1: ROUGE** 
+### 1: ROUGE 
 
 ROUGE, also called **Recall-Oriented Understudy for Gisting Evaluation** is a metric designed to measure the quality of **summaries** by comparing them to **human reference summaries**. ROUGE contains multiple metrics, the one we decided to use is ROUGE-N, which measures the **overlap of N-grams between the LLM-generated summary and the reference summary** - in other words, it looks for the longest common sequence of N-grams between the reference and the summarized text.
 
@@ -47,8 +49,7 @@ The image below illustrates the process we have taken for this metric:
 - [3] Medium article on [all metrics](https://medium.com/@bukowski.daniel/a-practical-framework-for-evaluating-text-generation-llms-4016ffa93736)
 
 -------------------------------------------
-#### **2: BLEU** 
-
+### 2: BLEU 
 
 BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candidate translation to one or more reference translations. BLEU evaluates translation quality based on n-gram precision. It calculates the precision of n-grams in the generated translation compared to one or more reference translations. BLEU also incorporates a brevity penalty to discourage overly short translations.
 
@@ -56,7 +57,10 @@ BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candid
     - BLEU breaks down both the reference and generated text into smaller units called n-grams (sequences of n words). It then counts how many of these n-grams in the generated text also appear in the reference text.
     - BLEU calculates a precision score for each n-gram size (usually up to 4-grams). Precision measures how many of the n-grams in the generated text match with the n-grams in the reference text.
     - Finally, BLEU combines all these factors into a single score between 0 and 1. A higher BLEU score indicates a better match between the generated text and the reference text.
+
+<div style="display: flex; justify-content: center;">
     <img height="100%" width="450px" src="./read_me_img/bleu.png" alt="Description of the image">
+</div>
 
 - **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./2_BLEU.ipynb)
 
@@ -69,7 +73,29 @@ BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candid
 - **BLEU** focuses on precision by counting matching n-grams between the generated and reference text.
 - **ROUGE** focuses on recall by measuring overlapping units like words, n-grams, and sequences between the generated and reference text.
 -------------------------------------------
-#### **3 Sentiment Analysis** 
+### 3: Sentiment Analysis 
 
 This metric uses the [IMDB dataset](https://huggingface.co/datasets/imdb) from Huggin Face that has 25,000 highly polar movie reviews for training and provides labels to the corresponding review, either being Positive or Negative. The goal is to query the LLM to ask it if the sentiment is positive and negative. Gathering the data, we then put a score between 0 and 1. 
-- <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
+
+<div style="display: flex; justify-content: center;">
+    <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
+</div>
+
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./3_Sentiment_Analysis.ipynb)
+-------------------------------------------
+### 4: Fact Checking 
+
+<div style="display: flex; justify-content: center;">
+    <img height="100%" width="450px" src="./read_me_img/fact_check.png" alt="Description of the image">
+</div>
+
+This metric uses WikiData and SparQL in order to create queries to specific known facts in Wikipedia. Queries are created to query Wikidata using sparQL and a prompt is asked to the LLM to provide a response to which we have the answer. We repeated this 10 times for different topics and created a score between 0 and 1. For information, link to [wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page?uselang=fr) or i.e [person](https://www.wikidata.org/wiki/Q215627)
+
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./4_Fact_checking.ipynb)
+
+-------------------------------------------
+### 5: BERT
+
+<div style="display: flex; justify-content: center;">
+    <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
+</div>
