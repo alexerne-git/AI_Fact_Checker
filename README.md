@@ -69,3 +69,7 @@ BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candid
 - **BLEU** focuses on precision by counting matching n-grams between the generated and reference text.
 - **ROUGE** focuses on recall by measuring overlapping units like words, n-grams, and sequences between the generated and reference text.
 -------------------------------------------
+#### **3 Sentiment Analysis** 
+
+This metric uses the [IMDB dataset](https://huggingface.co/datasets/imdb) from Huggin Face that has 25,000 highly polar movie reviews for training and provides labels to the corresponding review, either being Positive or Negative. The goal is to query the LLM to ask it if the sentiment is positive and negative. Gathering the data, we then put a score between 0 and 1. 
+- <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
