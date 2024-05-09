@@ -28,16 +28,14 @@ The goal of this project was to create a fact checker to evaluate LLMS, therefor
 * [3. Sentiment Analysis](#3-sentiment-analysis)
 * [4. Fact Checking](#4-fact-checking)
 * [5. BERT](#5-bert)
-
+* [6. Roberta](#6-Roberta)
+* [7. Combining the results](#7-combining-the-results)
 -------------------------------------------
 
 
 ## To fix: 
 - bleu library normalize
 - other datasets
-
-
-
 
 ### 1: ROUGE 
 
@@ -154,3 +152,21 @@ Utilizing ROBERTa score to evaluate generated summaries from language models aga
 
 **References:**
 - [1] [ROBERTA](https://huggingface.co/docs/transformers/model_doc/roberta)
+
+-------------------------------------------
+### 7. Combining the results
+
+To take advantage of the notebooks we have created and to test the models with the metrics, we have decided to create two notebooks:
+
+    - 1. The first one allows to execute all the metrics for a particular LLM
+    - 2. The second one allows to combine all the results and to plot them
+
+
+- These are the results of our findings:
+--> Present RESULTS
+--> recompute heat map
+--> plot also more specific results, i.e just comparing rouge across models... 
+
+<div style="display: flex; justify-content: center;">
+    <img height="100%" width="450px" src="./read_me_img/heatmap.png.png" alt="Description of the image">
+</div>
