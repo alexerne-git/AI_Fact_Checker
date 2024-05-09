@@ -1,5 +1,0 @@
-model_name,fact_check_acc
-Chat GPT,0.95
-Gemini,0.91
-Mistral,0.94
-Llama,0.93

@@ -1,5 +1,0 @@
-model_name,metric_1_unigram,metric_2_longest,fact_check_acc,score
-Chat GPT,0.14,0.09,0.95,0.6
-Gemini,0.26,0.16,0.91,0.5
-Mistral,0.31,0.22,0.94,0.6
-Llama,0.29,0.23,0.93,0.5

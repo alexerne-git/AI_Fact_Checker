@@ -1,5 +1,0 @@
-google-cloud-bigquery==3.17.2
-Flask==3.0.2
-Flask-Cors==4.0.0
-pandas
-db-dtypes
