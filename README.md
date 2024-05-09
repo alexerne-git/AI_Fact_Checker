@@ -33,10 +33,6 @@ The goal of this project was to create a fact checker to evaluate LLMS, therefor
 -------------------------------------------
 
 
-## To fix: 
-- bleu library normalize
-- other datasets
-
 ### 1: ROUGE 
 
 ROUGE, also called **Recall-Oriented Understudy for Gisting Evaluation** is a metric designed to measure the quality of **summaries** by comparing them to **human reference summaries**. ROUGE contains multiple metrics, the one we decided to use is ROUGE-N, which measures the **overlap of N-grams between the LLM-generated summary and the reference summary** - in other words, it looks for the longest common sequence of N-grams between the reference and the summarized text.
