@@ -164,5 +164,5 @@ To take advantage of the notebooks we have created and to test the models with t
 --> plot also more specific results, i.e just comparing rouge across models... 
 
 <div style="display: flex; justify-content: center;">
-    <img height="100%" width="450px" src="./read_me_img/heatmap.png.png" alt="Description of the image">
+    <img height="100%" width="450px" src="./read_me_img/heatmap.png" alt="Description of the image">
 </div>
