@@ -14,7 +14,12 @@ This repository contains all the informations related to our Fact AI checking pr
 
 ## Introduction: 
 
-The goal of this project was to create a fact checker to evaluate LLMS, therefore we have created known performance metrics such as rouge metric, sentiment analysis, fact checking... allowing to prompt engineer text generative models to generate well structured answer that we can then check using our metrics.
+The goal of this project was to create a fact checker to evaluate LLMS, therefore we have created known performance metrics such as rouge metric, sentiment analysis, fact checking... allowing to prompt engineer text generative models to generate well structured answer that we can then check using our metrics. We have decided to organize the metrics in the following ways:
+
+
+<div style="display: flex; justify-content: center;">
+    <img height="100%" width="800px" src="./read_me_img/general_view.png" alt="Description of the image">
+</div>
 
 ## Table of contents 
 
@@ -36,10 +41,12 @@ The image below illustrates the process we have taken for this metric:
 - 2. On the other hand we prompt engineer the LLM to provide a 25 word length summary of the article
 - 3. Then we combine each of those 10 - reference summary and generated summary and calculate the ROUGE score 
 <div style="display: flex; justify-content: center;">
-    <img height="100%" width="450px" src="./read_me_img/practice.png" alt="Description of the image">
+    <img height="100%" width="350px" src="./read_me_img/rouge_1.png" alt="Description of the image">
+    <div style="width:10px"></div>
+    <img height="100%" width="350px" src="./read_me_img/rouge_2.png" alt="Description of the image">
 </div>
 
-- **How to use it?** For more information, you can run the code (locally / Google Colab) - the code can be found [here](./1_ROUGE.ipynb)
+- **How to use it?** For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/1_ROUGE.ipynb)
 
 - **What output results?** ROUGE-1 is often preferred as the primary evaluation metric due to its simplicity, robustness, and ability to capture the essence of summary quality based on unigram overlap.
 
