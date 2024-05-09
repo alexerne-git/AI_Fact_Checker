@@ -30,6 +30,15 @@ The goal of this project was to create a fact checker to evaluate LLMS, therefor
 * [5. BERT](#5-bert)
 
 -------------------------------------------
+
+
+## To fix: 
+- bleu library normalize
+- other datasets
+
+
+
+
 ### 1: ROUGE 
 
 ROUGE, also called **Recall-Oriented Understudy for Gisting Evaluation** is a metric designed to measure the quality of **summaries** by comparing them to **human reference summaries**. ROUGE contains multiple metrics, the one we decided to use is ROUGE-N, which measures the **overlap of N-grams between the LLM-generated summary and the reference summary** - in other words, it looks for the longest common sequence of N-grams between the reference and the summarized text.
@@ -41,9 +50,7 @@ The image below illustrates the process we have taken for this metric:
 - 2. On the other hand we prompt engineer the LLM to provide a 25 word length summary of the article
 - 3. Then we combine each of those 10 - reference summary and generated summary and calculate the ROUGE score 
 <div style="display: flex; justify-content: center;">
-    <img height="100%" width="350px" src="./read_me_img/rouge_1.png" alt="Description of the image">
-    <div style="width:10px"></div>
-    <img height="100%" width="350px" src="./read_me_img/rouge_2.png" alt="Description of the image">
+    <img height="100%" width="500px" src="./read_me_img/rouge_1.png" alt="Description of the image">
 </div>
 
 - **How to use it?** For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/1_ROUGE.ipynb)
@@ -69,7 +76,7 @@ BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candid
     <img height="100%" width="450px" src="./read_me_img/bleu.png" alt="Description of the image">
 </div>
 
-- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./2_BLEU.ipynb)
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/2_BLEU.ipynb)
 
 
 **References:**
@@ -82,39 +89,68 @@ BLEU, or the Bilingual Evaluation Understudy, is a metric for comparing a candid
 -------------------------------------------
 ### 3: Sentiment Analysis 
 
+Sentiment analysis adds depth to language understanding by enabling machines to discern emotional tones within text, enhancing natural language processing capabilities. This capability is particularly valuable for sentiment-aware applications like customer feedback analysis, brand monitoring, and social media sentiment tracking, facilitating informed decision-making and enhancing user experiences.
+
+- **How does it work ?**
 This metric uses the [IMDB dataset](https://huggingface.co/datasets/imdb) from Huggin Face that has 25,000 highly polar movie reviews for training and provides labels to the corresponding review, either being Positive or Negative. The goal is to query the LLM to ask it if the sentiment is positive and negative. Gathering the data, we then put a score between 0 and 1. 
 
 <div style="display: flex; justify-content: center;">
     <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
 </div>
 
-- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./3_Sentiment_Analysis.ipynb)
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/3_Sentiment_Analysis.ipynb)
+
+**References:**
+- [1] Medium article on [evaluating LLMs](https://medium.com/data-science-at-microsoft/evaluating-llm-systems-metrics-challenges-and-best-practices-664ac25be7e5) 
 -------------------------------------------
 ### 4: Fact Checking 
+
+Fact-checking with language models involves verifying the accuracy of statements by comparing them against reliable sources like Wikidata or Wikipedia. This process enhances the credibility and reliability of information disseminated by language models, fostering trust in AI-generated content and promoting informed decision-making in various domains, including journalism, research, and public discourse.
+
+- **How does it work ?**
+This metric uses WikiData and SparQL in order to create queries to specific known facts in Wikipedia. Queries are created to query Wikidata using sparQL and a prompt is asked to the LLM to provide a response to which we have the answer. We repeated this 10 times for different topics and created a score between 0 and 1. For information, link to [wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page?uselang=fr) or i.e [person](https://www.wikidata.org/wiki/Q215627)
 
 <div style="display: flex; justify-content: center;">
     <img height="100%" width="450px" src="./read_me_img/fact_check.png" alt="Description of the image">
 </div>
 
-This metric uses WikiData and SparQL in order to create queries to specific known facts in Wikipedia. Queries are created to query Wikidata using sparQL and a prompt is asked to the LLM to provide a response to which we have the answer. We repeated this 10 times for different topics and created a score between 0 and 1. For information, link to [wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page?uselang=fr) or i.e [person](https://www.wikidata.org/wiki/Q215627)
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/4_Fact_checking.ipynb)
 
-- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./4_Fact_checking.ipynb)
-
+**References:**
+- [1] [SparQL](https://docs.data.world/tutorials/sparql/)
 -------------------------------------------
 ### 5: BERT
 
 BERTScore is a metric used to evaluate the quality of generated text by comparing it to a reference text. It assesses how similar the generated text (candidate) is to the reference text (precision, recall and F1 score).
 In simple terms, BERTScore gives us a way to quantitatively measure how well a generated piece of text matches a reference text. Higher BERTScores indicate better quality generated text. It's useful for evaluating the performance of language models and text generation systems.
+- **How does it work ?**
+Using BERT score to compare generated summaries from language models (LLMs) with human-generated summaries offers a quantitative assessment of their quality based on semantic similarity. BERT score leverages pre-trained contextualized word embeddings to capture nuanced semantic information, providing a more nuanced evaluation than traditional metrics like BLEU. This approach enables finer-grained analysis of LLM outputs, helping researchers and developers identify areas for improvement and fine-tune model performance to better match human-written summaries, ultimately enhancing the overall quality and usability of LLMs.
+
 
 <div style="display: flex; justify-content: center;">
-    <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
+    <img height="100%" width="450px" src="./read_me_img/bert_score.png" alt="Description of the image">
 </div>
 
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/5_BERT_Score.ipynb)
+
+
+**References:**
+- [1] [BERT Score](https://huggingface.co/spaces/evaluate-metric/bertscore)
 
 
 -------------------------------------------
 ### 6: Roberta
 
+ROBERTa, or Robustly Optimized BERT Approach, is a type of language model, which is a computer program that understands and generates human-like text. It's based on BERT, another popular language model, but ROBERTa is even better at understanding the context and meaning of words in a piece of text. It's like having a super-smart assistant that can read and write text in a way that's very similar to how humans do, making it incredibly useful for tasks like summarizing articles, answering questions, or even generating creative stories.
+- **How does it work ?**
+Utilizing ROBERTa score to evaluate generated summaries from language models against human-generated counterparts offers a robust metric for assessing semantic similarity. ROBERTa, a variant of BERT, employs large-scale pre-training and fine-tuning on diverse datasets, capturing intricate semantic nuances effectively. This comprehensive understanding enables precise evaluation, aiding developers and researchers in refining language model outputs to closely match human-written summaries. Consequently, leveraging ROBERTa score enhances the accuracy and utility of language models across various applications.
+
 <div style="display: flex; justify-content: center;">
-    <img height="100%" width="450px" src="./read_me_img/sentiment.png" alt="Description of the image">
+    <img height="100%" width="450px" src="./read_me_img/Roberta.png" alt="Description of the image">
 </div>
+
+- **How to use it?**  For more information, you can run the code (locally / Google Colab) - the code can be found [here](./Notebooks/6_RobBERT.ipynb)
+
+
+**References:**
+- [1] [ROBERTA](https://huggingface.co/docs/transformers/model_doc/roberta)
