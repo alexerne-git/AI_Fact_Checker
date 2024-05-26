@@ -1,0 +1,2 @@
+Mistral_small,Rouge1,RougeL,Bleu,Sentiment,Fact checking,Bert Score,RoberTa
+Mistral_small,0.26,0.17,0.07797146483353734,0.8,0.7,0.8529545664787292,0.5354627132415771

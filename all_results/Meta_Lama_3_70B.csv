@@ -1,0 +1,2 @@
+Meta_Lama_3_70B,Rouge1,RougeL,Bleu,Sentiment,Fact checking,Bert Score,RoberTa
+Meta_Lama_3_70B,0.3,0.2,0.08526326883881205,0.9,0.8,0.8755841255187988,0.4880135789513588
